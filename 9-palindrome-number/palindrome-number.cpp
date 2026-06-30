@@ -1,0 +1,25 @@
+class Solution {
+public:
+    int reverse(int x) {
+        int revnum = 0;
+        while(x!= 0){
+            int remain = x%10;
+            if(revnum> INT_MAX/10 || revnum< INT_MIN/10){
+                return 0;
+            }
+            revnum = revnum*10 + remain;
+            x= x/10;
+
+        } 
+        return revnum;
+    }
+    bool isPalindrome(int n) {
+        if(n < 0){
+            return false; 
+        }
+        int revnum = reverse(n);
+        return n == revnum;
+        
+        
+    }
+};
