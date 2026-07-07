@@ -13,20 +13,39 @@ public:
         //         s.insert(nums[i]);
         //     }
         // }
-        // return a;   
-        int n = nums.size();
-        int a ;
-        vector <int> freq(n+1, 0);
-        for(int i = 0 ; i < n ; i++){
-            freq[nums[i]]++;
-        }
-        for(int i = 1; i<= n ; i++){
-            if(freq[i]>1){
-                a = i;
+        // return a;  
 
-            }
+        //by freq finding 
+
+        // int n = nums.size();
+        // int a ;
+        // vector <int> freq(n+1, 0);
+        // for(int i = 0 ; i < n ; i++){
+        //     freq[nums[i]]++;
+        // }
+        // for(int i = 1; i<= n ; i++){
+        //     if(freq[i]>1){
+        //         a = i;
+
+        //     }
+        // }
+        // return a; 
+
+        //by hashing 
+
+        int slow = nums[0], fast = nums[0];
+        do{
+            slow = nums[slow];
+            fast = nums[nums[fast]];
+        }while(slow!=fast);
+
+        slow = nums[0];
+        while(slow!=fast){
+            slow = nums[slow];
+            fast = nums[fast];
+            
         }
-        return a; 
+        return slow;
         
     }
 };
